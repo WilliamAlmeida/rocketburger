@@ -1,9 +1,9 @@
 "use client";
 
-import { categories, products } from "@/data/menu";
+import { getCategories, getProducts } from "@/data/menu";
 import { ProductCard } from "@/components/ui/product-card";
-import { useState } from "react";
-import { Product } from "@/types/menu";
+import { useState, useEffect } from "react";
+import { Product, Category } from "@/types/menu";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Hourglass, Instagram, MapPin, Phone } from "lucide-react";
@@ -11,8 +11,38 @@ import { BusinessHours } from "@/components/ui/business-hours";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  // const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const fetchedProducts = await getProducts();
+        setProducts(fetchedProducts);
+      } catch (error) {
+        console.error('Failed to load products:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    async function loadCategories() {
+      try {
+        const fetchedCategories = await getCategories();
+        setCategories(fetchedCategories);
+      } catch (error) {
+        console.error('Failed to load categories:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadProducts();
+    loadCategories();
+  }, []);
 
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
@@ -49,6 +79,7 @@ export default function Home() {
         <div className="flex gap-2 overflow-x-auto pb-4">
           <Button
             variant={selectedCategory === null ? "default" : "outline"}
+            className="select-none"
             onClick={() => setSelectedCategory(null)}
           >
             Todos
@@ -57,6 +88,7 @@ export default function Home() {
             <Button
               key={category.id}
               variant={selectedCategory === category.slug ? "default" : "outline"}
+              className="select-none"
               onClick={() => setSelectedCategory(category.slug)}
             >
               {category.name}
@@ -65,14 +97,20 @@ export default function Home() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onSelect={setSelectedProduct}
-            />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+          {isLoading ? (
+            <p>Carregando produtos...</p>
+          ) : filteredProducts.length === 0 ? (
+            <p>Nenhum produto encontrado.</p>
+          ) : (
+            filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                // onSelect={setSelectedProduct}
+              />
+            ))
+          )}
         </div>
       </main>
     </div>

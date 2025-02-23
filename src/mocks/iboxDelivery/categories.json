@@ -1,0 +1,274 @@
+{
+  "current_page": 1,
+  "data": [
+      {
+          "id": 701,
+          "titulo": "Burgers",
+          "slug": "burgers",
+          "empresas_id": 111,
+          "ordem": 2,
+          "file_imagem": 35582,
+          "codigo_barras_1": null,
+          "imagem": {
+              "id": 35582,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/701_1010.png",
+              "name": "701_1010",
+              "full_name": "701_1010.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T07:52:49.000000Z",
+              "updated_at": "2024-03-31T07:52:49.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 702,
+          "titulo": "Milk-Shake",
+          "slug": "milk-shake",
+          "empresas_id": 111,
+          "ordem": 3,
+          "file_imagem": 36141,
+          "codigo_barras_1": null,
+          "imagem": {
+              "id": 36141,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/702_3537.png",
+              "name": "702_3537",
+              "full_name": "702_3537.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2025-01-02T06:38:14.000000Z",
+              "updated_at": "2025-01-02T06:38:14.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 727,
+          "titulo": "Refrigerantes",
+          "slug": "refrigerantes",
+          "empresas_id": 111,
+          "ordem": 9,
+          "file_imagem": 35579,
+          "codigo_barras_1": "6",
+          "imagem": {
+              "id": 35579,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/727_660.png",
+              "name": "727_660",
+              "full_name": "727_660.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T07:46:08.000000Z",
+              "updated_at": "2024-03-31T07:46:08.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 728,
+          "titulo": "Por\u00e7\u00f5es",
+          "slug": "porcoes",
+          "empresas_id": 111,
+          "ordem": 7,
+          "file_imagem": 35581,
+          "codigo_barras_1": "9",
+          "imagem": {
+              "id": 35581,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/728_5456.png",
+              "name": "728_5456",
+              "full_name": "728_5456.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T07:50:57.000000Z",
+              "updated_at": "2024-03-31T07:50:57.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 730,
+          "titulo": "Bebidas Alco\u00f3licas",
+          "slug": "bebidas-alcoolicas",
+          "empresas_id": 111,
+          "ordem": 12,
+          "file_imagem": 35587,
+          "codigo_barras_1": "14",
+          "imagem": {
+              "id": 35587,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/730_4210.png",
+              "name": "730_4210",
+              "full_name": "730_4210.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T08:13:30.000000Z",
+              "updated_at": "2024-03-31T08:13:30.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 733,
+          "titulo": "\u00c1guas",
+          "slug": "aguas",
+          "empresas_id": 111,
+          "ordem": 10,
+          "file_imagem": 35583,
+          "codigo_barras_1": null,
+          "imagem": {
+              "id": 35583,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/733_2019.png",
+              "name": "733_2019",
+              "full_name": "733_2019.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T07:56:08.000000Z",
+              "updated_at": "2024-03-31T07:56:08.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 734,
+          "titulo": "Sucos",
+          "slug": "sucos",
+          "empresas_id": 111,
+          "ordem": 9,
+          "file_imagem": 35589,
+          "codigo_barras_1": "5",
+          "imagem": {
+              "id": 35589,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/734_9872.png",
+              "name": "734_9872",
+              "full_name": "734_9872.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T08:19:15.000000Z",
+              "updated_at": "2024-03-31T08:19:15.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 736,
+          "titulo": "Bomboniere",
+          "slug": "bomboniere",
+          "empresas_id": 111,
+          "ordem": 8,
+          "file_imagem": 35588,
+          "codigo_barras_1": "7",
+          "imagem": {
+              "id": 35588,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/736_908.png",
+              "name": "736_908",
+              "full_name": "736_908.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T08:16:40.000000Z",
+              "updated_at": "2024-03-31T08:16:40.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 737,
+          "titulo": "Paletitas",
+          "slug": "paletitas",
+          "empresas_id": 111,
+          "ordem": 8,
+          "file_imagem": 35585,
+          "codigo_barras_1": null,
+          "imagem": {
+              "id": 35585,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/737_1032.png",
+              "name": "737_1032",
+              "full_name": "737_1032.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T08:07:03.000000Z",
+              "updated_at": "2024-03-31T08:07:03.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 739,
+          "titulo": "COMBOS Rocket",
+          "slug": "combos-rocket",
+          "empresas_id": 111,
+          "ordem": 4,
+          "file_imagem": 35576,
+          "codigo_barras_1": null,
+          "imagem": {
+              "id": 35576,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/739_240.png",
+              "name": "739_240",
+              "full_name": "739_240.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T07:36:42.000000Z",
+              "updated_at": "2024-03-31T07:36:42.000000Z",
+              "deleted_at": null
+          }
+      },
+      {
+          "id": 751,
+          "titulo": "Molhos Extras",
+          "slug": "molhos-extras",
+          "empresas_id": 111,
+          "ordem": 1,
+          "file_imagem": 35584,
+          "codigo_barras_1": null,
+          "imagem": {
+              "id": 35584,
+              "url": "\/uploads\/adm\/empresas\/111\/grupos\/751_6001.png",
+              "name": "751_6001",
+              "full_name": "751_6001.png",
+              "extension": "png",
+              "file_mimetype": "image\/png",
+              "rel_table": null,
+              "rel_id": null,
+              "created_at": "2024-03-31T08:05:10.000000Z",
+              "updated_at": "2024-03-31T08:05:10.000000Z",
+              "deleted_at": null
+          }
+      }
+  ],
+  "first_page_url": "https:\/\/ibox.delivery\/api\/v1\/empresa\/grupos?page=1",
+  "from": 1,
+  "last_page": 1,
+  "last_page_url": "https:\/\/ibox.delivery\/api\/v1\/empresa\/grupos?page=1",
+  "links": [
+      {
+          "url": null,
+          "label": "&laquo; Anterior",
+          "active": false
+      },
+      {
+          "url": "https:\/\/ibox.delivery\/api\/v1\/empresa\/grupos?page=1",
+          "label": "1",
+          "active": true
+      },
+      {
+          "url": null,
+          "label": "Pr\u00f3ximo &raquo;",
+          "active": false
+      }
+  ],
+  "next_page_url": null,
+  "path": "https:\/\/ibox.delivery\/api\/v1\/empresa\/grupos",
+  "per_page": 24,
+  "prev_page_url": null,
+  "to": 11,
+  "total": 11
+}

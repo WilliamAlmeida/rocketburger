@@ -23,6 +23,7 @@ export interface Product {
   promotionalPrice?: number;
   category: string;
   available: boolean;
+  url: string;
   addOnGroups: AddOnGroup[];
 }
 
@@ -31,4 +32,5 @@ export interface Category {
   name: string;
   slug: string;
   image?: string;
+  order?: number;
 }

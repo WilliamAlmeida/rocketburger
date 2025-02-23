@@ -4,21 +4,23 @@ import Image from "next/image";
 import { Badge } from "./badge";
 import { Button } from "./button";
 import { formatCurrency } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 interface ProductCardProps {
   product: Product;
-  onSelect: (product: Product) => void;
 }
 
-export function ProductCard({ product, onSelect }: ProductCardProps) {
+export function ProductCard({ product }: ProductCardProps) {
+  const router = useRouter();
+
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden flex flex-col">
       <div className="relative h-48 w-full">
         <Image
           src={product.image}
           alt={product.name}
           fill
-          className="object-cover"
+          className="object-cover select-none"
         />
         {product.promotionalPrice && (
           <Badge className="absolute top-2 right-2 bg-red-500">
@@ -26,8 +28,8 @@ export function ProductCard({ product, onSelect }: ProductCardProps) {
           </Badge>
         )}
       </div>
-      <CardHeader>
-        <CardTitle className="flex justify-between items-center">
+      <CardHeader className="px-3">
+        <CardTitle className="flex justify-between items-center gap-x-1">
           <span>{product.name}</span>
           <div className="text-right">
             {product.promotionalPrice ? (
@@ -46,14 +48,14 @@ export function ProductCard({ product, onSelect }: ProductCardProps) {
             )}
           </div>
         </CardTitle>
-        <CardDescription>{product.description}</CardDescription>
+        <CardDescription className="text-xs max-h-20 overflow-y-auto scroll-custom">{product.description}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="mt-auto">
         <Button 
-          className="w-full"
-          onClick={() => onSelect(product)}
+          className="w-full select-none font-semibold italic bg-green-400 active:bg-green-700 transition-colors hover:text-white"
+          onClick={() => router.push(product.url)}
         >
-          Adicionar ao Pedido
+          Realizar pedido
         </Button>
       </CardContent>
     </Card>

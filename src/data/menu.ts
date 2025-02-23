@@ -1,59 +1,70 @@
 import { Category, Product } from "@/types/menu";
+import dotenv from "dotenv";
+import { IBoxDeliveryService } from "@/services/iboxdelivery.service";
 
-export const categories: Category[] = [
-  { id: "1", name: "Burgers", slug: "burgers" },
-  { id: "2", name: "Bebidas", slug: "bebidas" },
-  { id: "3", name: "Acompanhamentos", slug: "acompanhamentos" },
-  { id: "4", name: "Sobremesas", slug: "sobremesas" },
-];
+dotenv.config();
+const iboxServiceApiKey = process.env.IBOX_SERVICE_API_KEY;
 
-const NEW_IMAGE_URL = "https://ibox.delivery/build/assets/skeleton-DR25ZlA_.avif";
+export async function getCategories(): Promise<Category[]> {
+  try {
+    const iboxService = new IBoxDeliveryService(iboxServiceApiKey || '');
+    const iboxCategories = await iboxService.getCategories(23);
+    
+    return iboxCategories.map(category => ({
+      id: category.id.toString(),
+      name: category.nome,
+      slug: category.nome.toLowerCase().replace(/\s+/g, '-'),
+      image: category.imagem,
+      order: category.ordem,
+    })).sort((a, b) => a.order - b.order);
+  } catch (error) {
+    console.error('Failed to fetch categories:', error);
+    return [];
+  }
+}
 
-export const products: Product[] = [
-  {
-    id: "1",
-    name: "Rocket Classic Burger",
-    description: "Hambúrguer artesanal 180g, queijo cheddar, alface, tomate e molho especial",
-    image: "https://ibox.delivery/uploads/adm/empresas/111/produtos/7104_3572-600x600.jpg",
-    price: 32.90,
-    promotionalPrice: 29.90,
-    category: "burgers",
-    available: true,
-    addOnGroups: [
-      {
-        id: "1",
-        name: "Ponto da carne",
-        required: true,
-        multiple: false,
-        addOns: [
-          { id: "1", name: "Mal passado", price: 0, available: true },
-          { id: "2", name: "Ao ponto", price: 0, available: true },
-          { id: "3", name: "Bem passado", price: 0, available: true },
-        ],
-      },
-      {
-        id: "2",
-        name: "Adicionais",
-        required: false,
-        multiple: true,
-        maxChoices: 3,
-        addOns: [
-          { id: "4", name: "Bacon extra", price: 4.90, available: true },
-          { id: "5", name: "Queijo extra", price: 3.90, available: true },
-          { id: "6", name: "Cebola caramelizada", price: 2.90, available: true },
-        ],
-      },
-    ],
-  },
-  {
-    id: "2",
-    name: "Refrigerante Coca-Cola 350ml",
-    description: "Lata 350ml",
-    image: NEW_IMAGE_URL,
-    price: 4.90,
-    promotionalPrice: 0,
-    category: "bebidas",
-    available: true,
-    addOnGroups: [],
-  },
-];
+export async function getProducts(): Promise<Product[]> {
+  try {
+    const iboxService = new IBoxDeliveryService(iboxServiceApiKey || '');
+    const iboxProducts = await iboxService.getProdutos(23);
+
+    console.log(iboxProducts.map(product => ({
+      id: product.id.toString(),
+      name: product.nome,
+      description: product.descricao,
+      image: product.imagem || 'https://ibox.delivery/build/assets/skeleton-DR25ZlA_.avif',
+      price: product.preco,
+      promotionalPrice: product.preco_promocao,
+      category: mapCategoryId(product.categoria_id),
+      available: product.status,
+      url: product.url,
+      addOnGroups: [], // You might want to map additional product data here
+    })));
+    
+    return iboxProducts.map(product => ({
+      id: product.id.toString(),
+      name: product.nome,
+      description: product.descricao,
+      image: product.imagem || 'https://ibox.delivery/build/assets/skeleton-DR25ZlA_.avif',
+      price: product.preco,
+      promotionalPrice: product.preco_promocao,
+      category: mapCategoryId(product.categoria_id),
+      available: product.status,
+      url: product.url,
+      addOnGroups: [], // You might want to map additional product data here
+    }));
+  } catch (error) {
+    console.error('Failed to fetch products:', error);
+    return [];
+  }
+}
+
+function mapCategoryId(categoryId: number): string {
+  const categoryMap: Record<number, string> = {
+    1: 'burgers',
+    2: 'bebidas',
+    3: 'acompanhamentos',
+    4: 'sobremesas',
+  };
+  return categoryMap[categoryId] || 'outros';
+}
